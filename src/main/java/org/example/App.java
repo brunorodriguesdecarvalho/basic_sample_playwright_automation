@@ -1,15 +1,15 @@
+// src/main/java/org/example/App.java
 package org.example;
 
 import com.microsoft.playwright.*;
-import java.nio.file.Paths;
 
 public class App {
     public static void main(String[] args) {
         try (Playwright playwright = Playwright.create()) {
-            Browser browser = playwright.webkit().launch();
+            Browser browser = playwright.chromium().launch();
             Page page = browser.newPage();
-            page.navigate("http://whatsmyuseragent.org/");
-            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("c:/Workspace/example2.png")));
+            page.navigate("http://playwright.dev");
+            System.out.println(page.title());
         }
     }
 }
